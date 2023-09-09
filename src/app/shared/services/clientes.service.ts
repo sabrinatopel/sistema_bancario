@@ -9,7 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class ClientesService {
   api = `${enviroment.api}/clientes`;
+  teste = `https://api.adviceslip.com/advice`
   constructor(private httpClient: HttpClient) {}
+  getDitto(){
+    return this.httpClient.get(this.teste)
+  }
 
   getAll(): Observable<Cliente[]> {
     return this.httpClient.get<Cliente[]>(this.api);

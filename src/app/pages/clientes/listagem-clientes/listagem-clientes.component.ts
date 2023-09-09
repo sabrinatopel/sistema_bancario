@@ -8,15 +8,16 @@ import { ClientesService } from 'src/app/shared/services/clientes.service';
 })
 export class ListagemClientesComponent implements OnInit {
   clientes: Cliente[] = [];
+  advice = { slip: { id: 0, advice: '' } };
   constructor(private clienteService: ClientesService) {}
   ngOnInit(): void {
     this.getAll();
   }
 
   getAll() {
-    this.clienteService.getAll().subscribe((data:Cliente[]) => {
-      console.log(data)
-      this.clientes = data;
+    this.clienteService.getAll().subscribe((data: any) => {
+      console.log(data.results);
+      this.clientes = data.results;
     });
   }
 }
