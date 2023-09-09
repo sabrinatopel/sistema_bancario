@@ -1,1 +1,6 @@
-<p>listagem-clientes works!</p>
+<div class="container">
+  <h2>Listagem de Clientes</h2>
+  <ul *ngFor="let cliente of clientes">
+    <li>{{ cliente.nome }}</li>
+  </ul>
+</div>
