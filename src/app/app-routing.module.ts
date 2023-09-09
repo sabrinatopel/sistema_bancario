@@ -5,9 +5,12 @@ import { ListagemClientesComponent } from './pages/clientes/listagem-clientes/li
 const routes: Routes = [
   {
     path: '',
-    component: ListagemClientesComponent,
   },
- 
+  {
+    path: 'clientes',
+    component: ListagemClientesComponent,
+    children: [{ path: 'listagem', component: ListagemClientesComponent }],
+  },
 ];
 
 @NgModule({
