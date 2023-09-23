@@ -82,7 +82,7 @@ export class CadastroContaComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           });
-          this.router.navigate(['/conta']);
+          this.router.navigate(['','conta']);
         },
         error: (error: any) => {
           console.error(error);

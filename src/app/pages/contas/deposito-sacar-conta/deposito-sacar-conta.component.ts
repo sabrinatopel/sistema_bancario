@@ -52,7 +52,7 @@ export class DepositoSacarContaComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           });
-          this.router.navigate(['/conta']);
+          this.router.navigate(['','contas']);
         },
         error: (error: any) => {
           console.error(error);
@@ -75,7 +75,7 @@ export class DepositoSacarContaComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           });
-          this.router.navigate(['/conta']);
+          this.router.navigate(['','contas']);
         },
         error: (error: any) => {
           console.error(error);
