@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { enviroment } from 'src/enviroment/enviroment';
-import { Contas } from '../models/contas';
+import { Conta } from '../models/conta';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,29 +11,33 @@ export class ContasService {
   api = `${enviroment.api}/contas`;
   constructor(private httpClient: HttpClient) {}
 
-  getAll(): Observable<Contas[]> {
-    return this.httpClient.get<Contas[]>(this.api);
+  getAll(): Observable<Conta[]> {
+    return this.httpClient.get<Conta[]>(this.api);
   }
-  getById(id: string): Observable<Contas> {
-    return this.httpClient.get<Contas>(`${this.api}/${id}`);
+  listar_paginado(page: number, pageSize: number): Observable<Conta[]> {
+    return this.httpClient
+    .get<Conta[]>(`${this.api}?page=${page}&pageSize=${pageSize}`);
   }
-  create(body: Contas): Observable<Contas> {
-    return this.httpClient.post<Contas>(this.api, body);
+  getById(id: number): Observable<Conta> {
+    return this.httpClient.get<Conta>(`${this.api}/${id}`);
   }
-  updateById(id: string, body: Contas): Observable<Contas> {
-    return this.httpClient.put<Contas>(`${this.api}/${id}`, body);
+  create(body: Conta): Observable<Conta> {
+    return this.httpClient.post<Conta>(this.api, body);
   }
-  removeById(id: string): Observable<Contas> {
-    return this.httpClient.delete<Contas>(`${this.api}/${id}`);
+  updateById(id: number, body: Conta): Observable<Conta> {
+    return this.httpClient.put<Conta>(`${this.api}/${id}`, body);
   }
-  depositarByIdConta(id: string, body: Contas): Observable<Contas> {
-    return this.httpClient.post<Contas>(`${this.api}/${id}/deposito`, body);
+  removeById(id: number): Observable<Conta> {
+    return this.httpClient.delete<Conta>(`${this.api}/${id}`);
   }
-  sacarByIdConta(id: string, body: Contas): Observable<Contas> {
-    return this.httpClient.post<Contas>(`${this.api}/${id}/saque`, body);
+  depositarByIdConta(id: number, body: Conta): Observable<Conta> {
+    return this.httpClient.post<Conta>(`${this.api}/${id}/deposito`, body);
   }
-  transferenciaByIdConta(id: string, body: Contas): Observable<Contas> {
-    return this.httpClient.post<Contas>(
+  sacarByIdConta(id: number, body: Conta): Observable<Conta> {
+    return this.httpClient.post<Conta>(`${this.api}/${id}/saque`, body);
+  }
+  transferenciaByIdConta(id: number, body: Conta): Observable<Conta> {
+    return this.httpClient.post<Conta>(
       `${this.api}/${id}/transferencia`,
       body
     );

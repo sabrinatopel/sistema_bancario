@@ -2,12 +2,12 @@
   <br />
   <div class="row">
     <div class="col-12 mb-2">
-      <button mat-raised-button color="primary" [routerLink]="['', 'clientes']">
+      <button mat-raised-button color="primary" [routerLink]="['', 'contas']">
         <mat-icon fontIcon="keyboard_backspace"></mat-icon> Voltar
       </button>
     </div>
     <div class="col-12 mb-2">
-      <h1>{{ editar ? "Editar Cliente" : "Novo Cliente" }}</h1>
+      <h1>{{ editar ? "Editar Conta" : "Novo Conta" }}</h1>
     </div>
     <div class="col-12">
       <form
@@ -18,13 +18,13 @@
         <div class="row g-3">
           <div class="col-8">
             <mat-form-field class="full-width">
-              <mat-label>Nome</mat-label>
-              <input matInput formControlName="nome" />
+              <mat-label>Número</mat-label>
+              <input matInput formControlName="numero" />
               <mat-error
                 class="text-danger mb-2"
                 *ngIf="
-                  formGroup.get('nome')?.errors &&
-                  formGroup.get('nome')?.hasError('required')
+                  formGroup.get('numero')?.errors &&
+                  formGroup.get('numero')?.hasError('required')
                 "
                 >Campo obrigatório</mat-error
               >
@@ -32,52 +32,54 @@
           </div>
           <div class="col-4">
             <mat-form-field class="full-width">
-              <mat-label>CPF</mat-label>
-              <input matInput formControlName="cpf" mask="000.000.000-00" />
+              <mat-label>Agência</mat-label>
+              <input matInput formControlName="agencia" />
               <mat-error
                 class="text-danger mb-2"
                 *ngIf="
-                  formGroup.get('cpf')?.errors &&
-                  formGroup.get('cpf')?.hasError('required')
+                  formGroup.get('agencia')?.errors &&
+                  formGroup.get('agencia')?.hasError('required')
                 "
                 >Campo obrigatório</mat-error
               >
             </mat-form-field>
           </div>
-          <div class="col-12">
+          <div class="col-6">
             <mat-form-field class="full-width">
-              <mat-label>Email</mat-label>
-              <input matInput formControlName="email" />
+              <mat-label>Saldo</mat-label>
+              <input matInput formControlName="saldo" />
               <mat-error
                 class="text-danger mb-2"
                 *ngIf="
-                  formGroup.get('email')?.errors &&
-                  formGroup.get('email')?.hasError('required')
+                  formGroup.get('saldo')?.errors &&
+                  formGroup.get('saldo')?.hasError('required')
                 "
                 >Campo obrigatório</mat-error
               >
             </mat-form-field>
           </div>
-          <div class="col-12">
+          <div class="col-6">
             <mat-form-field class="full-width">
-              <mat-label>Observações</mat-label>
-              <textarea matInput formControlName="observacoes"></textarea>
+              <mat-label>Cliente</mat-label>
+              <mat-select  formControlName="cliente">
+                <mat-option
+                  *ngFor="let cliente of clientesList"
+                  [value]="cliente.id"
+                >
+                  {{ cliente.cpf }} - {{ cliente.nome }}
+                </mat-option>
+              </mat-select>
               <mat-error
                 class="text-danger mb-2"
                 *ngIf="
-                  formGroup.get('observacoes')?.errors &&
-                  formGroup.get('observacoes')?.hasError('required')
+                  formGroup.get('cliente')?.errors &&
+                  formGroup.get('cliente')?.hasError('required')
                 "
                 >Campo obrigatório</mat-error
               >
             </mat-form-field>
           </div>
-          <div class="col-10">
-            <mat-radio-group formControlName="ativo">
-              <mat-radio-button [value]="true">Ativo</mat-radio-button>
-              <mat-radio-button [value]="false">Inativo</mat-radio-button>
-            </mat-radio-group>
-          </div>
+
           <div class="col-2">
             <button
               [disabled]="!formGroup.valid"

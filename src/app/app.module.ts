@@ -10,6 +10,7 @@ import { MaterialModule } from './shared/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientesModule } from './pages/clientes/clientes.module';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { ContasModule } from './pages/contas/contas.module';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -21,6 +22,7 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     MaterialModule,
     HttpClientModule,
     ClientesModule,
+    ContasModule,
     NgxMaskDirective,
     NgxMaskPipe,
     ReactiveFormsModule
