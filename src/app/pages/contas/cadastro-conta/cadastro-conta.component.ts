@@ -1,16 +1,16 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cliente } from 'src/app/shared/models/cliente';
 import { Conta } from 'src/app/shared/models/conta';
 import { ClientesService } from 'src/app/shared/services/clientes.service';
 import { ContasService } from 'src/app/shared/services/contas.service';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-cadastro-conta',
   templateUrl: './cadastro-conta.component.html',
   styleUrls: ['./cadastro-conta.component.scss'],
+
+
 })
 export class CadastroContaComponent implements OnInit {
   editar: any;
@@ -31,7 +31,11 @@ export class CadastroContaComponent implements OnInit {
     });
     this.editar = false;
   }
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
 
+    return this.clientesList.filter((option:any) => option.toLowerCase().includes(filterValue));
+  }
   ngOnInit(): void {
     this.getAll();
 

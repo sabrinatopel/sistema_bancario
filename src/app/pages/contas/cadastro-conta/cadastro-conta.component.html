@@ -60,13 +60,15 @@
           </div>
           <div class="col-3">
             <mat-form-field appearance="outline" class="full-width">
-              <mat-select  formControlName="cliente" placeholder="Cliente">
-                <mat-option *ngFor="let cliente of clientesList"  [value]="cliente.id">
+              <mat-select formControlName="cliente" placeholder="Cliente">
+                <mat-option
+                  *ngFor="let cliente of clientesList"
+                  [value]="cliente.id"
+                >
                   {{ cliente.cpf }} - {{ cliente.nome }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-          
           </div>
 
           <div class="col-2">
