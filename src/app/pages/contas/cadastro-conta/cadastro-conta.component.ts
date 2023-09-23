@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/shared/models/cliente';
@@ -15,8 +15,7 @@ import Swal from 'sweetalert2';
 export class CadastroContaComponent implements OnInit {
   editar: any;
   formGroup: FormGroup;
-  clientesList: Cliente[] = [];
-
+  clientesList: any;
   constructor(
     private clienteService: ClientesService,
     private contaService: ContasService,
@@ -49,7 +48,7 @@ export class CadastroContaComponent implements OnInit {
   cadastrar() {
     const conta: Conta = this.formGroup.value;
     if (this.editar) {
-      this.contaService.updateById(this.editar, conta).subscribe({
+      this.contaService.updateById(this.route.snapshot.params['id'], conta).subscribe({
         next: () => {
           Swal.fire({
             icon: 'success',
@@ -95,7 +94,7 @@ export class CadastroContaComponent implements OnInit {
   getAll() {
     this.clienteService
       .getAll()
-      .subscribe((conta) => {
+      .subscribe((conta:any[]) => {
         this.clientesList = conta
       });
     

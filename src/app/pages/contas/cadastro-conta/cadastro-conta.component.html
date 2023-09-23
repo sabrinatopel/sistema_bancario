@@ -16,7 +16,7 @@
         (ngSubmit)="cadastrar()"
       >
         <div class="row g-3">
-          <div class="col-8">
+          <div class="col-3">
             <mat-form-field class="full-width">
               <mat-label>Número</mat-label>
               <input matInput formControlName="numero" />
@@ -30,7 +30,7 @@
               >
             </mat-form-field>
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <mat-form-field class="full-width">
               <mat-label>Agência</mat-label>
               <input matInput formControlName="agencia" />
@@ -44,7 +44,7 @@
               >
             </mat-form-field>
           </div>
-          <div class="col-6">
+          <div class="col-3">
             <mat-form-field class="full-width">
               <mat-label>Saldo</mat-label>
               <input matInput formControlName="saldo" />
@@ -58,26 +58,15 @@
               >
             </mat-form-field>
           </div>
-          <div class="col-6">
+          <div class="col-3">
             <mat-form-field class="full-width">
-              <mat-label>Cliente</mat-label>
-              <mat-select  formControlName="cliente">
-                <mat-option
-                  *ngFor="let cliente of clientesList"
-                  [value]="cliente.id"
-                >
+              <mat-select  formControlName="cliente" placeholder="Cliente">
+                <mat-option *ngFor="let cliente of clientesList"  [value]="cliente.id">
                   {{ cliente.cpf }} - {{ cliente.nome }}
                 </mat-option>
               </mat-select>
-              <mat-error
-                class="text-danger mb-2"
-                *ngIf="
-                  formGroup.get('cliente')?.errors &&
-                  formGroup.get('cliente')?.hasError('required')
-                "
-                >Campo obrigatório</mat-error
-              >
             </mat-form-field>
+          
           </div>
 
           <div class="col-2">

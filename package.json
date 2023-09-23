@@ -25,7 +25,6 @@
     "jquery": "^3.3.1",
     "material": "^0.5.3",
     "ngx-mask": "^16.3.7",
-    "ngx-mat-select-search": "^7.0.4",
     "popper.js": "^1.14.3",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.7.27",

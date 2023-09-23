@@ -1,7 +1,8 @@
 export interface Conta {
-  id?: number;
+  id?: any;
   numero: string;
   agencia: string;
   saldo: number;
   cliente: number;
+  clienteNome:string;
 }

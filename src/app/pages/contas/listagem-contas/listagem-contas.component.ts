@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Conta } from 'src/app/shared/models/conta';
+import { ClientesService } from 'src/app/shared/services/clientes.service';
 import { ContasService } from 'src/app/shared/services/contas.service';
 import Swal from 'sweetalert2';
 
@@ -16,14 +17,17 @@ export class ListagemContasComponent implements AfterViewInit {
     'numero',
     'agencia',
     'saldo',
-    'cliente',
+    'clienteNome',
     'funcoes',
   ];
   dataSource = new MatTableDataSource<Conta>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private contaService: ContasService) {}
+  constructor(
+    private contaService: ContasService,
+    private clienteService: ClientesService
+  ) {}
 
   ngAfterViewInit() {
     this.listarContas(1, 5);
@@ -31,6 +35,11 @@ export class ListagemContasComponent implements AfterViewInit {
 
   listarContas(page: number, pageSize: number) {
     this.contaService.listar_paginado(page, pageSize).subscribe((contas) => {
+      for (let i = 0; i < contas.length; i++) {
+        this.clienteService.getById(contas[i].cliente).subscribe((conta) => {
+          contas[i].clienteNome = conta.nome;
+        });
+      }
       this.dataSource.data = contas;
     });
   }
