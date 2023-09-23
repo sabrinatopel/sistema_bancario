@@ -1,10 +1,19 @@
 <mat-toolbar color="primary">
-    <span>My Bank</span>
-    <span class="ms-auto"></span>
-    <button  class="router-button" [routerLink]="['clientes']" mat-button>Clientes</button>
-    <button  class="router-button" [routerLink]="['contas']" mat-button>Contas</button>
-    <button  class="router-button" [routerLink]="['clientes']" mat-button>Depósitos</button>
-    <button  class="router-button" [routerLink]="['clientes']" mat-button>Saque</button>
-    <button  class="router-button" [routerLink]="['clientes']" mat-button>Transferência</button>
-
+  <span>My Bank</span>
+  <span class="ms-auto"></span>
+  <button class="router-button" [routerLink]="['', 'clientes']" mat-button>
+    Clientes
+  </button>
+  <button class="router-button" [routerLink]="['', 'contas']" mat-button>
+    Contas
+  </button>
+  <button class="router-button" [routerLink]="['contas', 'deposito']" mat-button>
+    Depósitos
+  </button>
+  <button class="router-button" [routerLink]="['contas', 'sacar']" mat-button>
+    Saque
+  </button>
+  <button class="router-button" [routerLink]="['contas', 'transferencia']" mat-button>
+    Transferência
+  </button>
 </mat-toolbar>

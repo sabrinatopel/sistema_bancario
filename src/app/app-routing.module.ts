@@ -4,6 +4,9 @@ import { ListagemClientesComponent } from './pages/clientes/listagem-clientes/li
 import { CadastroClienteComponent } from './pages/clientes/cadastro-cliente/cadastro-cliente.component';
 import { CadastroContaComponent } from './pages/contas/cadastro-conta/cadastro-conta.component';
 import { ListagemContasComponent } from './pages/contas/listagem-contas/listagem-contas.component';
+import { DepositoContaComponent } from './pages/contas/deposito-conta/deposito-conta.component';
+import { SacarContaComponent } from './pages/contas/sacar-conta/sacar-conta.component';
+import { TransferenciaContaComponent } from './pages/contas/transferencia-conta/transferencia-conta.component';
 
 const routes: Routes = [
   {
@@ -29,6 +32,18 @@ const routes: Routes = [
       {
         path: 'novo',
         component: CadastroContaComponent,
+      },
+      {
+        path: 'transferencia',
+        component: TransferenciaContaComponent,
+      },
+      {
+        path: 'sacar',
+        component: SacarContaComponent,
+      },
+      {
+        path: 'deposito',
+        component: DepositoContaComponent,
       },
       {
         path: 'editar/:id',

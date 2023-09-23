@@ -21,7 +21,6 @@ export class ContasService {
   getById(id: number): Observable<Conta> {
     return this.httpClient.get<Conta>(`${this.api}/${id}`);
   }
-
   create(body: Conta): Observable<Conta> {
     return this.httpClient.post<Conta>(`${this.api}/`, body);
   }
@@ -31,6 +30,7 @@ export class ContasService {
   removeById(id: number): Observable<Conta> {
     return this.httpClient.delete<Conta>(`${this.api}/${id}`);
   }
+  
   depositarByIdConta(id: number, body: Conta): Observable<Conta> {
     return this.httpClient.post<Conta>(`${this.api}/${id}/deposito`, body);
   }

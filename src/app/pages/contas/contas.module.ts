@@ -8,23 +8,35 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { RouterModule } from '@angular/router';
 import { ListagemContasComponent } from './listagem-contas/listagem-contas.component';
+import { DepositoContaComponent } from './deposito-conta/deposito-conta.component';
+import { SacarContaComponent } from './sacar-conta/sacar-conta.component';
+import { TransferenciaContaComponent } from './transferencia-conta/transferencia-conta.component';
 
 @NgModule({
   declarations: [
     ListagemContasComponent,
-    CadastroContaComponent
+    CadastroContaComponent,
+    DepositoContaComponent,
+    SacarContaComponent,
+    TransferenciaContaComponent,
   ],
   imports: [
     MaterialModule,
     CommonModule,
     HttpClientModule,
-    BrowserModule, 
+    BrowserModule,
     NgxMaskDirective,
     NgxMaskPipe,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
   ],
-  exports:[CadastroContaComponent, ListagemContasComponent],
+  exports: [
+    CadastroContaComponent,
+    ListagemContasComponent,
+    DepositoContaComponent,
+    SacarContaComponent,
+    TransferenciaContaComponent,
+  ],
   providers: [provideNgxMask()],
 })
-export class ContasModule { }
+export class ContasModule {}
