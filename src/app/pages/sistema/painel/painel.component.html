@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <mat-card class="card-painel">
+      <mat-card class="card-painel" [routerLink]="['', 'contas']">
         <mat-icon
           fontIcon="account_balance_wallet"
           style="margin: auto"
@@ -11,7 +11,7 @@
       </mat-card>
     </div>
     <div class="col-3">
-      <mat-card class="card-painel">
+      <mat-card class="card-painel" [routerLink]="['', 'clientes']">
         <mat-icon
           fontIcon="account_balance_wallet"
           style="margin: auto"
@@ -20,7 +20,7 @@
       </mat-card>
     </div>
     <div class="col-3">
-      <mat-card class="card-painel">
+      <mat-card class="card-painel" [routerLink]="['/contas', 'deposito']">
         <mat-icon
           fontIcon="account_balance_wallet"
           style="margin: auto"
@@ -29,7 +29,7 @@
       </mat-card>
     </div>
     <div class="col-3">
-      <mat-card class="card-painel">
+      <mat-card class="card-painel" [routerLink]="['/contas', 'sacar']">
         <mat-icon
           fontIcon="account_balance_wallet"
           style="margin: auto"
@@ -40,7 +40,7 @@
   </div> <br>
   <div class="row">
     <div class="col-3">
-        <mat-card class="card-painel">
+        <mat-card class="card-painel" [routerLink]="['/contas', 'transferencia']">
           <mat-icon
             fontIcon="account_balance_wallet"
             style="margin: auto"
