@@ -6,8 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from 'src/app/shared/material/material.module';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 
 
 
