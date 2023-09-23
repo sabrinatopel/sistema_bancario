@@ -17,7 +17,7 @@
       >
         <div class="row g-3">
           <div class="col-3">
-            <mat-form-field class="full-width">
+            <mat-form-field appearance="outline" class="full-width">
               <mat-label>Número</mat-label>
               <input matInput formControlName="numero" />
               <mat-error
@@ -31,7 +31,7 @@
             </mat-form-field>
           </div>
           <div class="col-3">
-            <mat-form-field class="full-width">
+            <mat-form-field appearance="outline" class="full-width">
               <mat-label>Agência</mat-label>
               <input matInput formControlName="agencia" />
               <mat-error
@@ -45,7 +45,7 @@
             </mat-form-field>
           </div>
           <div class="col-3">
-            <mat-form-field class="full-width">
+            <mat-form-field appearance="outline" class="full-width">
               <mat-label>Saldo</mat-label>
               <input matInput formControlName="saldo" />
               <mat-error
@@ -59,7 +59,7 @@
             </mat-form-field>
           </div>
           <div class="col-3">
-            <mat-form-field class="full-width">
+            <mat-form-field appearance="outline" class="full-width">
               <mat-select  formControlName="cliente" placeholder="Cliente">
                 <mat-option *ngFor="let cliente of clientesList"  [value]="cliente.id">
                   {{ cliente.cpf }} - {{ cliente.nome }}

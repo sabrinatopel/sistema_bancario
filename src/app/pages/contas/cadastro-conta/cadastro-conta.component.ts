@@ -97,6 +97,5 @@ export class CadastroContaComponent implements OnInit {
       .subscribe((conta:any[]) => {
         this.clientesList = conta
       });
-    
   }
 }

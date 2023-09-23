@@ -1,4 +1,5 @@
 export interface Transferencia {
   valor: number;
-  contaDestino: number;
+  conta_destino: number;
+  contaOrigem?:any
 }

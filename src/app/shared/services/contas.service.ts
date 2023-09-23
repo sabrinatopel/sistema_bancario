@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { enviroment } from 'src/enviroment/enviroment';
 import { Conta } from '../models/conta';
 import { Observable } from 'rxjs';
+import { SaqueDeposito } from '../models/saqueDeposito';
+import { Transferencia } from '../models/transferencia';
 
 @Injectable({
   providedIn: 'root',
@@ -30,16 +32,16 @@ export class ContasService {
   removeById(id: number): Observable<Conta> {
     return this.httpClient.delete<Conta>(`${this.api}/${id}`);
   }
-  
-  depositarByIdConta(id: number, body: Conta): Observable<Conta> {
-    return this.httpClient.post<Conta>(`${this.api}/${id}/deposito`, body);
+
+  depositarByIdConta(id: number, body: SaqueDeposito): Observable<SaqueDeposito> {
+    return this.httpClient.post<SaqueDeposito>(`${this.api}/${id}/deposito/`, body);
   }
-  sacarByIdConta(id: number, body: Conta): Observable<Conta> {
-    return this.httpClient.post<Conta>(`${this.api}/${id}/saque`, body);
+  sacarByIdConta(id: number, body: SaqueDeposito): Observable<SaqueDeposito> {
+    return this.httpClient.post<SaqueDeposito>(`${this.api}/${id}/saque/`, body);
   }
-  transferenciaByIdConta(id: number, body: Conta): Observable<Conta> {
-    return this.httpClient.post<Conta>(
-      `${this.api}/${id}/transferencia`,
+  transferenciaByIdConta(id: number, body: Transferencia): Observable<Transferencia> {
+    return this.httpClient.post<Transferencia>(
+      `${this.api}/${id}/transferencia/`,
       body
     );
   }

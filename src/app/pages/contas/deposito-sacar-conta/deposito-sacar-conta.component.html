@@ -7,7 +7,9 @@
         </button>
       </div>
       <div class="col-12 mb-2">
-        <h1>Transferência</h1>
+        <h1 *ngIf="funcao == 'deposito'" >Deposito</h1>
+        <h1 *ngIf="funcao == 'sacar'" >Sacar</h1>
+        <h1 *ngIf="funcao == 'transferencia'" >Transferência</h1>
       </div>
       <div class="col-12">
         <form
@@ -16,24 +18,7 @@
           (ngSubmit)="cadastrar()"
         >
           <div class="row g-3">
-            <div class="col-3">
-                <mat-form-field appearance="outline" class="full-width" >
-                  <mat-select  formControlName="contaOrigem" placeholder="Conta Origem">
-                    <mat-option *ngFor="let conta of contasList"  [value]="conta.id">
-                      {{ conta.id }} - {{ conta.clienteNome }}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error
-                  class="text-danger mb-2"
-                  *ngIf="
-                    formGroup.get('valor')?.errors &&
-                    formGroup.get('valor')?.hasError('required')
-                  "
-                  >Campo obrigatório</mat-error
-                >
-                </mat-form-field>
-              
-              </div>
+           
             <div class="col-3">
               <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Valor</mat-label>
@@ -50,19 +35,11 @@
             </div>
             <div class="col-3">
               <mat-form-field appearance="outline" class="full-width">
-                <mat-select  formControlName="conta_destino" placeholder="Conta Destino">
+                <mat-select  formControlName="conta" placeholder="Cliente">
                   <mat-option *ngFor="let conta of contasList"  [value]="conta.id">
-                    {{ conta.numero }} - {{ conta.clienteNome }}
+                    {{ conta.id }} - {{ conta.clienteNome }}
                   </mat-option>
                 </mat-select>
-                <mat-error
-                class="text-danger mb-2"
-                *ngIf="
-                  formGroup.get('valor')?.errors &&
-                  formGroup.get('valor')?.hasError('required')
-                "
-                >Campo obrigatório</mat-error
-              >
               </mat-form-field>
             
             </div>
@@ -75,7 +52,8 @@
                 color="primary"
                 class="full-width"
               >
-                Transferir
+                <span *ngIf="funcao == 'deposito'" >Depositar</span>
+                <span *ngIf="funcao == 'sacar'" >Sacar</span>
               </button>
             </div>
           </div>

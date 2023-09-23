@@ -4,9 +4,8 @@ import { ListagemClientesComponent } from './pages/clientes/listagem-clientes/li
 import { CadastroClienteComponent } from './pages/clientes/cadastro-cliente/cadastro-cliente.component';
 import { CadastroContaComponent } from './pages/contas/cadastro-conta/cadastro-conta.component';
 import { ListagemContasComponent } from './pages/contas/listagem-contas/listagem-contas.component';
-import { DepositoContaComponent } from './pages/contas/deposito-conta/deposito-conta.component';
-import { SacarContaComponent } from './pages/contas/sacar-conta/sacar-conta.component';
 import { TransferenciaContaComponent } from './pages/contas/transferencia-conta/transferencia-conta.component';
+import { DepositoSacarContaComponent } from './pages/contas/deposito-sacar-conta/deposito-sacar-conta.component';
 
 const routes: Routes = [
   {
@@ -39,11 +38,11 @@ const routes: Routes = [
       },
       {
         path: 'sacar',
-        component: SacarContaComponent,
+        component: DepositoSacarContaComponent,
       },
       {
         path: 'deposito',
-        component: DepositoContaComponent,
+        component: DepositoSacarContaComponent,
       },
       {
         path: 'editar/:id',
