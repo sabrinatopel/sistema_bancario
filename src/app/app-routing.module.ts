@@ -6,8 +6,14 @@ import { CadastroContaComponent } from './pages/contas/cadastro-conta/cadastro-c
 import { ListagemContasComponent } from './pages/contas/listagem-contas/listagem-contas.component';
 import { TransferenciaContaComponent } from './pages/contas/transferencia-conta/transferencia-conta.component';
 import { DepositoSacarContaComponent } from './pages/contas/deposito-sacar-conta/deposito-sacar-conta.component';
+import { LoginComponent } from './pages/sistema/login/login.component';
+import { PainelComponent } from './pages/sistema/painel/painel.component';
 
 const routes: Routes = [
+  {
+    path: 'painel',
+    component: PainelComponent,
+  },
   {
     path: 'clientes',
     children: [
@@ -56,7 +62,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: ListagemClientesComponent,
+    component: LoginComponent,
   },
 ];
 

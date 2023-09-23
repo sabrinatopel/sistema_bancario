@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClientesModule } from './pages/clientes/clientes.module';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ContasModule } from './pages/contas/contas.module';
+import { SistemaModule } from './pages/sistema/sistema.module';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -22,6 +23,7 @@ import { ContasModule } from './pages/contas/contas.module';
     MaterialModule,
     HttpClientModule,
     ClientesModule,
+    SistemaModule,
     ContasModule,
     NgxMaskDirective,
     NgxMaskPipe,

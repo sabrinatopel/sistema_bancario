@@ -1,5 +1,7 @@
 <mat-toolbar color="primary">
-  <span>My Bank</span>
+  <button class="router-button" [routerLink]="['painel']" mat-button>
+    My Bank
+  </button>
   <span class="ms-auto"></span>
   <button class="router-button" [routerLink]="['', 'clientes']" mat-button>
     Clientes
@@ -15,5 +17,8 @@
   </button>
   <button class="router-button" [routerLink]="['contas', 'transferencia']" mat-button>
     Transferência
+  </button>
+  <button class="router-button" [routerLink]="['']" mat-button>
+    Sair
   </button>
 </mat-toolbar>
